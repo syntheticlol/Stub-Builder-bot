@@ -62,7 +62,8 @@ bot = commands.Bot(command_prefix='+', intents=intents, help_command=None)
 def black():
     try:
         with open("blacklist.txt", "r") as f:
-            return set(map(int, f.read().splitlines()))
+            lines = filter(None, f.read().splitlines())
+            return set(map(int, lines))
     except FileNotFoundError:
         return set()
 
