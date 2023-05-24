@@ -1,3 +1,7 @@
+# developed by synthetic#1337 & synthetic#1336
+
+# dm if you have any trouble
+
 🤖 Discord stub builder bot
 
 # 🔨 Build Command
