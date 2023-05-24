@@ -141,7 +141,7 @@ async def lolhelpdude(ctx):
 @bot.command(name='features')
 async def sfeatures(ctx):
     if ctx.message.author.id in blacklist:
-        embed=discord.Embed(title="{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
+        embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
         embed.add_field(name=f"{config['name']} Info", value=f"""```
 ===================================>
 
