@@ -153,50 +153,8 @@ async def sfeatures(ctx):
     # Create an embed message
         embed=discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
         embed.add_field(name=f"{config['name']} Features", value=f"""```
- - BROWSER FEATURES -
- All passwords logged
- all cookies logged
 
-- MONEY LOGGING - 
- Exodus wallet stealer
- paypal logs
- cash app logs
-
-- ROBLOX FEATURES -
- Password
- Username
- Cookie
- Rap
- Summary
- Value 
- avatar
-
-- Minecraft -
- User
- Pass
- Session
-
-- Steam -
- All Steam Folders
- Games
- Profile Data
-
-- DISCORD FEATURES -
- TOKEN
- USER
- ID
- BILLING
- ALL ACCOUNTS LOGGED
- MUCH MORE...
-
-- SECURITY -
- Custom Made Obf
- best anti decode
- best anti vm
- best anti debug
- hard to get webhook
- good obfuscation
- undetected to most ANTI AVS such as windows kasperkey ESET and many more
+CUSTOMIZE THIS
 
 ```""")
         await ctx.send(embed=embed)
