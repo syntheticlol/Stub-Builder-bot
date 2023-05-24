@@ -1,4 +1,4 @@
-# developed by synthetic#1337 & synthetic#1336
+# developed by synthetic#1337
 
 # dm if you have any trouble
 
