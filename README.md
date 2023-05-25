@@ -1,4 +1,4 @@
-# developed by synthetic#1337
+# new account synthetic#6928
 
 # dm if you have any trouble
 
