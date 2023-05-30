@@ -16,8 +16,8 @@ from discord.ext import commands
 intents = discord.Intents.all()
 
 config = {
-   'token': "YOURBOT",  # BOT TOKEN
-   'authid': "YourDiscordId", # ADMIN ID PERSON WHO CAN GENNERATE KEYS [CAN ONLY BE 1 ID]
+   'token': "BotTOKEN",  # BOT TOKEN
+   'authid': ['ADMINID', 'ADMINID'], # ADMIN ID PERSON WHO CAN GENNERATE KEYS [CAN ONLY BE 1 ID]
    'name': "EXO", # NAME OF BOT for example since its EXO its going to say "EXO Builder"
    'embedcolor': "0x702963", # the color code has to have 0x infront of the hex code always
    'prefix': "$" # change prefix to whatever you want
@@ -70,10 +70,15 @@ def black():
 
 blacklist = black()
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("This isn't a command you retard :money_mouth: :astonished: :face_with_spiral_eyes: :disappointed: :rofl:")
+
 @bot.command(name='ban')
 async def banu(ctx, user_id: int):
     authed = config['authid']
-    if ctx.message.author.id != int(authed):
+    if str(ctx.message.author.id) not in authed:
         await ctx.send("Who do you think you are, bro?")
         return
     if user_id in blacklist:
@@ -87,7 +92,7 @@ async def banu(ctx, user_id: int):
 @bot.command(name='unban')
 async def unbanu(ctx, user_id: int):
     authed = config['authid']
-    if ctx.message.author.id != int(authed):
+    if str(ctx.message.author.id) not in authed:
         await ctx.send("Who you think you are bro")
         return
 
@@ -276,7 +281,7 @@ def generatek():
 @bot.command(name='genkey')
 async def genkeyy(ctx, user_id: str):
     authed = config['authid']
-    if ctx.message.author.id != int(authed):
+    if str(ctx.message.author.id) not in authed:
         await ctx.send("Who do you think you are bro")
         return
 
@@ -286,7 +291,7 @@ async def genkeyy(ctx, user_id: str):
 
     user = await bot.fetch_user(int(user_id))
     await user.send(f"This is your key for {config['name']}: `KEY-{key}`")
-    embed = discord.Embed(title="{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
+    embed = discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
     embed.add_field(name=f"{config['name']}", value=f"```User was successfully added. Key: KEY-{key}```")
     await ctx.send(embed=embed)
 
@@ -294,7 +299,7 @@ async def genkeyy(ctx, user_id: str):
 @bot.command(name='blacklist')
 async def blacklistk(ctx, userid: str):
     authed = config['authid']
-    if ctx.message.author.id != int(authed):
+    if str(ctx.message.author.id) not in authed:
         await ctx.send("Who do you think you are bro")
         return
 
