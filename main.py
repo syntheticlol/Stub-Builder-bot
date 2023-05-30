@@ -16,10 +16,11 @@ from discord.ext import commands
 intents = discord.Intents.all()
 
 config = {
-   'token': "YourBotToken",  # BOT TOKEN
-   'authid': "yourdiscordid", # ADMIN ID PERSON WHO CAN GENNERATE KEYS [CAN ONLY BE 1 ID]
+   'token': "YOURBOT",  # BOT TOKEN
+   'authid': "YourDiscordId", # ADMIN ID PERSON WHO CAN GENNERATE KEYS [CAN ONLY BE 1 ID]
    'name': "EXO", # NAME OF BOT for example since its EXO its going to say "EXO Builder"
-   'embedcolor': "0x702963" # the color code has to have 0x infront of the hex code always
+   'embedcolor': "0x702963", # the color code has to have 0x infront of the hex code always
+   'prefix': "$" # change prefix to whatever you want
 }
 
 # 0xFFFF00 <- yellow
@@ -27,11 +28,11 @@ config = {
 
 os.system('cls')
 os.system('title Stub Builder Bot [github.com/syntheticlol]')
-banner = """
+banner = f"""
 
          [Developer = synthetic#1337]
                           
-                Prefix = [+]
+                Prefix = [{config['prefix']}]
 
   ╔══════════════════════════════════════╗ 
   ║         |Loaded Commands <3|         ║
@@ -39,25 +40,25 @@ banner = """
   ║ -------------------------------------║
   ║             Client Commands          ║
   ║ -------------------------------------║
-  ║                 +help                ║
-  ║               +features              ║
-  ║                +about                ║
-  ║               +prices                ║
-  ║                +build                ║
+  ║                 {config['prefix']}help                ║
+  ║               {config['prefix']}features              ║
+  ║                {config['prefix']}about                ║
+  ║               {config['prefix']}prices                ║
+  ║                {config['prefix']}build                ║
   ║ -------------------------------------║
   ║             Admin Commands           ║
   ║ -------------------------------------║
-  ║               +genkey                ║
-  ║              +Blacklist              ║
-  ║                +ban                  ║
-  ║               +unban                 ║
+  ║               {config['prefix']}genkey                ║
+  ║              {config['prefix']}Blacklist              ║
+  ║                {config['prefix']}ban                  ║
+  ║               {config['prefix']}unban                 ║
   ║ -------------------------------------║
   ╚══════════════════════════════════════╝  
 
 """
 
 print(Colorate.Horizontal(Colors.red_to_purple, Center.XCenter(banner)))
-bot = commands.Bot(command_prefix='+', intents=intents, help_command=None)
+bot = commands.Bot(command_prefix=f"{config['prefix']}", intents=intents, help_command=None)
 
 def black():
     try:
@@ -126,18 +127,18 @@ async def lolhelpdude(ctx):
             value=f"""
         **===================== Client Commands =====================**
 
-        **+features**```Command to show all {config['name']} features```
-        **+info**```Info (who developer is and bot prefix)```
-        **+about**```About us```
-        **+price**```Prices for {config['name']}```
-        **+build <webhook> <key>**```Command to build stub```
+        **{config['prefix']}features**```Command to show all {config['name']} features```
+        **{config['prefix']}info**```Info (who developer is and bot prefix)```
+        **{config['prefix']}about**```About us```
+        **{config['prefix']}price**```Prices for {config['name']}```
+        **{config['prefix']}build <webhook> <key>**```Command to build stub```
 
         **===================== Admin Commands =======================**
 
-        **+genkey <userid>**```Command to attribute a key to user```
-        **+blacklist <userid>**```Command to blacklist a key```
-        **+ban <userid>**```Ban a user```
-        **+unban <userid>**```Unban a user```
+        **{config['prefix']}genkey <userid>**```Command to attribute a key to user```
+        **{config['prefix']}blacklist <userid>**```Command to blacklist a key```
+        **{config['prefix']}ban <userid>**```Ban a user```
+        **{config['prefix']}unban <userid>**```Unban a user```
 
         """,
         )
@@ -228,7 +229,7 @@ async def inf(ctx):
 
 ============== Prefix ============>
 
-            Prefix [+]
+            Prefix [{config['prefix']}]
 
 ===================================>
 ```""",
@@ -365,6 +366,5 @@ def casw(ctx, webhook):
         shutil.rmtree("build")
     except Exception as e:
         print(f"{str(e)}")
-
 
 bot.run(config['token'])
