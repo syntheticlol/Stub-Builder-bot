@@ -4,7 +4,7 @@
 
 # dm if you have any trouble
 
-🤖 Discord stub builder bot
+🤖 Discord stub builder bot.
 
 # 🔨 Build Command
 Builds whatever source (ST34LER, token gr4ber, malware)
